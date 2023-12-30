@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Student Form</title>
+</head>
+<body>
+    <div class="container">
+       
+    <h3>Student Registration Form</h3>
+    <hr>
+
+	<!--
+		
+		1)for 2 way binding,
+		th:object="${student}"  
+		and 
+		model.put("student", student);
+		model key student and th:object="${student}"  value 
+		must be same for binding.
+
+	student object we get from showStudentForm() method
+	and bind with the fields of forms.
+	To bind with each field we use th:field="*{property_Name}".
+	=> due to this if we fill data and save our data will be saved using setter method.
+	=>and get data on UI side from controller, using getter method.
+
+	2)In Form, when we fill all fields details, and click on save.
+	PostMethod Action will be perform,
+	so we bind with url  which url will be call in controller,
+	th:action="@{student/saveStudent}".
+
+	this url, bind with saveStudentFormInfo() methods, 
+	so to collect data of form fields from UI side to controller side,
+	we need to use @ModelAttribute("student") in method as parameter.
+	then we get data in our controller.
+	
+	-->
+    <form  th:action="@{/api/student/saveStudent}"   th:object="${student}"
+						  method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden"  th:field="*{sid}"  />
+			
+			<input type="text" 
+					class="form-control mb-4 col-4" th:field="*{firstName}"   placeholder="First name">
+
+			<input type="text"
+					class="form-control mb-4 col-4" th:field="*{lastName}"   placeholder="Last name">
+
+			<input type="text" 
+					class="form-control mb-4 col-4" th:field="*{email}"  placeholder="Email">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+
+<!--
+	when we use  anchor tag, 
+	as we know we need to specify link in href.
+	but as we use thymleaf  th:href="@{value}",
+	we need to specify url instead of value, 
+	so that after we click on anchor tag, it redirect to url specify in value.
+-->
+
+		<a th:href="@{/api/student/getallstudents}" >Back to Student List</a>
+
+    
+      
+    </div>
+
+</body>
+</html>
