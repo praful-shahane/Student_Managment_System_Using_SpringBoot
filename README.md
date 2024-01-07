@@ -6,10 +6,16 @@ In this Project, Basically functionality includes User can
 ->DELETE Student
 ->GET ALL Student.
 
-This project make using Java, HTML, BOOTSTRAP, SPRING and SPRINGBOOT.
-Dependencies we use in this project are:-
-1)Spring-web-MVC.
-2)Lom-Bok API,
-3)Spring-Data-JPA,
-4)MYSQL-Database-connector.
+This project make using <b> Java, HTML, BOOTSTRAP, SPRING and SPRINGBOOT .  </b> <br/>
+Dependencies we use in this project are:- <br/>
+<b>
+1)Spring-web-MVC.<br/>
+2)Lom-Bok API,<br/>
+3)Spring-Data-JPA,<br/>
+4)MYSQL-Database-connector.<br/>
+</b>
+
+
+
+
 
